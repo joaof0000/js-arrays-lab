@@ -15,10 +15,9 @@ Exercise 2:
 */
 
 // Complete Exercise 2 below...
+foods.push('pizza', 'cheeseburger');
+console.log('Exercise 2 Result:\n', foods);
 
-
-
-console.log('Exercise 2 Result:\n',  foods);
 
 /*
 Exercise 3:
@@ -27,9 +26,9 @@ Exercise 3:
 
 // Complete Exercise 3 below...
 
-
-
+foods.unshift('taco');
 console.log('Exercise 3 Result:\n', foods);
+
 
 /*
 Exercise 4:
@@ -40,7 +39,9 @@ Exercise 4:
 
 
 
+const favFood = foods[1];
 console.log('Exercise 4 Result:\n', favFood);
+
 
 /*
 Exercise 5:
@@ -51,6 +52,7 @@ Exercise 5:
 
 
 
+foods.splice(2, 0, 'tofu');
 console.log('Exercise 5 Result:\n', foods);
 
 /*
@@ -62,7 +64,8 @@ Exercise 6:
 
 
 
-console.log('Exercise 6 Result:\n', foods);
+foods.splice(1, 1, 'sushi','cupcake');
+Console.log('Exercise 6 Result:\n', foods);
 
 /*
 Exercise 7:
@@ -73,8 +76,9 @@ Exercise 7:
 // Complete Exercise 7 below...
 
 
-
-console.log('Exercise 7 Result:\n', yummy);
+const foods = ['taco','sushi','cupcake','tofu','cheeseburger'];
+const yummy = foods.slice(1, 2);
+console.log(yummy);
 
 /*
 Exercise 8:
@@ -84,7 +88,7 @@ Exercise 8:
 // Complete Exercise 8 below...
 
 
-
+const soyIdx = foods.indexOf('tofu');
 console.log('Exercise 8 Result:\n', soyIdx);
 
 /*
@@ -97,6 +101,7 @@ Exercise 9:
 
 
 
+const allFoods = foods.join(' -> ');
 console.log('Exercise 9 Result:\n', allFoods);
 
 /*
@@ -108,8 +113,8 @@ Exercise 10:
 
 
 
+const hasSoup = foods.includes('soup');
 console.log('Exercise 10 Result:\n', hasSoup);
-
 /*
 Exercise 11:
   - Use the forEach method to iterate through the provided nums array and add each odd number to a new array named odds.
@@ -117,12 +122,15 @@ Exercise 11:
 */
 
 const nums = [100, 5, 23, 15, 21, 72, 9, 45, 66, 7, 81, 90];
-
-// Complete Exercise 11 below...
-
-
-
+const odds = [];
+nums.forEach(num => {
+  if (num % 2 !== 0) {
+    odds.push(num);
+  }
+});
 console.log('Exercise 11 Result:\n', odds);
+
+
 
 /*
 Exercise 12:
@@ -135,11 +143,24 @@ Exercise 12:
 // Complete Exercise 12 below...
 
 
+const nums = [100, 5, 23, 15, 21, 72, 9, 45, 66, 7, 81, 90];
+const fizz = [];
+const buzz = [];
+const fizzbuzz = [];
 
-console.log('Exercise 12 Results:');
-console.log('  fizz:', fizz);
-console.log('  buzz:', buzz);
-console.log('  fizzbuzz:', fizzbuzz);
+nums.forEach(num => {
+  if (num % 3 === 0 && num % 5 === 0) {
+    fizzbuzz.push(num);
+  } else if (num % 3 === 0) {
+    fizz.push(num);
+  } else if (num % 5 === 0) {
+    buzz.push(num);
+  }
+});
+
+console.log("Fizz:", fizz);
+console.log("Buzz:", buzz);
+console.log("FizzBuzz:", fizzbuzz);
 
 /*
 Exercise 13:
@@ -148,11 +169,13 @@ Exercise 13:
 */
 
 const numArrays = [
-	[100, 5, 23],
-	[15, 21, 72, 9],
-	[45, 66],
-	[7, 81, 90]
-];
+    [100, 5, 23],
+    [15, 21, 72, 9],
+    [45, 66],
+    [7, 81, 90]
+  ];
+  const numList = numArrays[numArrays.length - 1];
+  console.log('Exercise 13 Result:\n', numList);
 
 // Complete Exercise 13 below...
 
@@ -169,6 +192,7 @@ Exercise 14:
 
 
 
+const num = numArrays[2][1];
 console.log('Exercise 14 Result:\n', num);
 
 /*
@@ -181,4 +205,10 @@ Exercise 15:
 
 
 
+let total = 0;
+numArrays.forEach(arr => {
+  arr.forEach(num => {
+    total += num;
+  });
+});
 console.log('Exercise 15 Result:\n', total);
